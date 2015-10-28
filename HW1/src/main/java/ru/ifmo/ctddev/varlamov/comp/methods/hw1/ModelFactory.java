@@ -105,14 +105,16 @@ public class ModelFactory {
                         result[1][0] = left;
                         result[1][init.length - 1] = right;
                         for (int j = 1; j < init.length - 1; j++) {
-                            result[1][j] = result[0][j] * (1 - 2 * r) + (r - s / 2) * result[0][j + 1] + (r + s / 2) * result[0][j - 1];
+                            result[1][j] = result[0][j] * (1 - 2 * r) + (r - s / 2) * result[0][j + 1]
+                                    + (r + s / 2) * result[0][j - 1];
                         }
                         for (int i = 2; i <= iterations; i++) {
                             result[i] = new double[init.length];
                             result[i][0] = left;
                             result[i][init.length - 1] = right;
                             for (int j = 1; j < init.length - 1; j++) {
-                                result[i][j] = result[i - 2][j] - result[i - 1][j] * 2 * r + (r - s / 2) * result[i - 1][j + 1] + (r + s / 2) * result[i - 1][j - 1];
+                                result[i][j] = result[i - 2][j] - result[i - 1][j] * 4 * r + (2 * r - s) * result[i - 1][j + 1]
+                                        + (2 * r + s) * result[i - 1][j - 1];
                             }
                         }
                         return result;

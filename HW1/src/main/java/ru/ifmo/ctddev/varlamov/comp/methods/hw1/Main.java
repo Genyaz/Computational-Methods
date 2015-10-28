@@ -12,11 +12,11 @@ public class Main {
         state.setValue("dx", "0.1");
         state.setValue("n", "100");
         state.setValue("dt", "1");
-        state.setValue("u", "0.05");
-        state.setValue("chi", "0.01");
-        state.setValue("iterations", "100");
-        state.setValue("interval", "100");
-        state.setValue("method", "ecf");
+        state.setValue("u", "-0.05");
+        state.setValue("chi", "0.0025");
+        state.setValue("iterations", "1000");
+        state.setValue("interval", "75");
+        state.setValue("method", "icf");
         console.addCall("calculate", new ConsoleInterface.ConsoleCallback() {
             @Override
             public void call(PrintStream out) {
